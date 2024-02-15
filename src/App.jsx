@@ -19,12 +19,14 @@ import * as Yup from "yup";
 import "./App.css";
 
 const App = () => {
+  // For Password function
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  
 
   const [selectedValue, setSelectedValue] = useState("");
+
+  // For Gender Function
   const [gender, setGender] = React.useState("");
 
   const handleChange = (event) => {
@@ -44,9 +46,7 @@ const App = () => {
           location: "",
           role: "",
         }}
-
         validationSchema={validationSchema}
-        
         onSubmit={(values) => {
           console.log(values);
         }}
@@ -64,13 +64,17 @@ const App = () => {
               padding: "2rem",
             }}
           >
-            <Typography variant="h5" sx={{color:"#E65100",fontWeight:'bold'}} >
+            <Typography
+              variant="h5"
+              sx={{ color: "#E65100", fontWeight: "bold" }}
+            >
               Register
             </Typography>
 
+            {/* Email */}
             <FormControl>
               <TextField
-               color="warning"
+                color="warning"
                 size="small"
                 label="Email"
                 {...formik.getFieldProps("email")}
@@ -79,10 +83,10 @@ const App = () => {
                 <FormHelperText error>{formik.errors.email}</FormHelperText>
               ) : null}
             </FormControl>
-
+            {/* First Name */}
             <FormControl>
               <TextField
-               color="warning"
+                color="warning"
                 size="small"
                 label="First Name"
                 {...formik.getFieldProps("firstName")}
@@ -91,10 +95,10 @@ const App = () => {
                 <FormHelperText error>{formik.errors.firstName}</FormHelperText>
               ) : null}
             </FormControl>
-
+            {/* Last Name */}
             <FormControl>
               <TextField
-               color="warning"
+                color="warning"
                 size="small"
                 label="Last Name"
                 {...formik.getFieldProps("lastName")}
@@ -103,8 +107,8 @@ const App = () => {
                 <FormHelperText error>{formik.errors.lastName}</FormHelperText>
               ) : null}
             </FormControl>
-
-            <FormControl size="small"  color="warning">
+            {/* For Password */}
+            <FormControl size="small" color="warning">
               <InputLabel htmlFor="outlined-adornment-password">
                 Password
               </InputLabel>
@@ -129,9 +133,12 @@ const App = () => {
                 <FormHelperText error>{formik.errors.password}</FormHelperText>
               ) : null}
             </FormControl>
-
-            <FormControl size="small" color="warning" >
-              <InputLabel htmlFor="outlined-adornment-password" sx={{background:"white"}}>
+            {/* For Confirm Password */}
+            <FormControl size="small" color="warning">
+              <InputLabel
+                htmlFor="outlined-adornment-password"
+                sx={{ background: "white" }}
+              >
                 Confirm Password
               </InputLabel>
               <OutlinedInput
@@ -158,11 +165,11 @@ const App = () => {
                 </FormHelperText>
               ) : null}
             </FormControl>
-
+            {/* For Gender */}
             <FormControl size="small" color="warning">
               <InputLabel id="demo-simple-select-label">Gender</InputLabel>
               <Select
-              color="warning"
+                color="warning"
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={gender}
@@ -178,10 +185,10 @@ const App = () => {
                 <FormHelperText error>{formik.errors.gender}</FormHelperText>
               ) : null}
             </FormControl>
-
+            {/* For Location */}
             <FormControl>
               <TextField
-              color="warning"
+                color="warning"
                 size="small"
                 label="Location"
                 {...formik.getFieldProps("location")}
@@ -190,11 +197,13 @@ const App = () => {
                 <FormHelperText error>{formik.errors.location}</FormHelperText>
               ) : null}
             </FormControl>
-
+            {/* For Role */}
             <FormControl size="small">
-              <InputLabel id="demo-simple-select-label" color="warning">Role</InputLabel>
+              <InputLabel id="demo-simple-select-label" color="warning">
+                Role
+              </InputLabel>
               <Select
-              color="warning"
+                color="warning"
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={gender}
@@ -209,11 +218,14 @@ const App = () => {
                 <FormHelperText error>{formik.errors.role}</FormHelperText>
               ) : null}
             </FormControl>
-
+            {/* Sign Up Button */}
             <Button type="submit" variant="contained" color="warning">
               Sign Up
             </Button>
-            <Typography color="primary" sx={{ textDecoration: "underline",color:"black" }}>
+            <Typography
+              color="primary"
+              sx={{ textDecoration: "underline", color: "black" }}
+            >
               Already register? Login
             </Typography>
           </form>
